@@ -21,7 +21,7 @@ EXPOSE 25565/tcp
 
 CMD ["/launch.sh"]
 
-ENV MOTD "Technopolis vB9.0 Server Powered by Docker"
+ENV MOTD "Techopolis vB9.0 Server Powered by Docker"
 ENV LEVEL world
 ENV LEVEL skyblock
 ENV JVM_OPTS "-Xms2048m -Xmx4096m"

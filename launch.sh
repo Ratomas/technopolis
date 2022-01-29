@@ -11,10 +11,9 @@ else
 	exit 9
 fi
 
-if ! [[ -f Technopolis-B9.0-Server.zip ]]; then
-	rm -fr config defaultconfigs global_data_packs global_resource_packs mods packmenu Technopolis-*-Server.zip
-	curl -o Technopolis-B9.0-Server.zip https://media.forgecdn.net/files/3621/790/Techopolis-B9.0.zip && unzip -u -o Technopolis-B9.0-Server.zip -d /data
-	set -euo pipefail
+if ! [[ -f Techopolis-B9.0-Server.zip ]]; then
+	rm -fr config defaultconfigs global_data_packs global_resource_packs mods packmenu Techopolis-*-Server.zip
+	curl -o Techopolis-B9.0-Server.zip https://media.forgecdn.net/files/3621/790/Techopolis-B9.0.zip && unzip -u -o Techopolis-B9.0-Server.zip -d /data
 
 	# check for serverstarter jar
 	if ! [[ -f serverstarter-2.0.1.jar ]]; then
