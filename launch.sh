@@ -4,6 +4,9 @@ set -x
 
 cd /data
 
+mv /server.properties /data/server.properties
+mv /server-setup-config.yaml /data/server-setup-config.yaml
+
 if ! [[ "$EULA" = "false" ]] || grep -i true eula.txt; then
 	echo "eula=true" > eula.txt
 else
@@ -29,7 +32,7 @@ if ! [[ -f serverstarter-2.0.1.jar ]]; then
 fi
 
 if [[ -n "$MOTD" ]]; then
-    sed -i "/motd\s*=/ c motd=$MOTD" server.properties
+    sed -i "/motd\s*=/ c motd=$MOTD" /data/server.properties
 fi
 if [[ -n "$LEVEL" ]]; then
     sed -i "/level-name\s*=/ c level-name=$LEVEL" server.properties

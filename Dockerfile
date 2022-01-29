@@ -12,6 +12,12 @@ COPY launch.sh /launch.sh
 RUN dos2unix /launch.sh
 RUN chmod +x /launch.sh
 
+COPY server.properties /server.properties
+RUN dos2unix /server.properties
+
+COPY server-setup-config.yaml /server-setup-config.yaml
+RUN dos2unix /server-setup-config.yaml
+
 USER minecraft
 
 VOLUME /data
