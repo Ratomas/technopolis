@@ -12,16 +12,13 @@ COPY launch.sh /launch.sh
 RUN dos2unix /launch.sh
 RUN chmod +x /launch.sh
 
-COPY server.properties /data/server.properties
-RUN dos2unix /data/server.properties
-
-COPY server-setup-config.yaml /data/server-setup-config.yaml
-RUN dos2unix /data/server-setup-config.yaml
-
 USER minecraft
 
 VOLUME /data
 WORKDIR /data
+
+COPY server.properties /data/server.properties
+COPY server-setup-config.yaml /data/server-setup-config.yaml
 
 EXPOSE 25565/tcp
 
