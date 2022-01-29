@@ -32,5 +32,5 @@ CMD ["/launch.sh"]
 
 ENV MOTD "Techopolis vB9.0 Server Powered by Docker"
 ENV LEVEL world
-ENV LEVEL skyblock
+ENV LEVELTYPE skyblock
 ENV JVM_OPTS "-Xms2048m -Xmx4096m"
