@@ -29,13 +29,13 @@ if ! [[ -f serverstarter-2.0.1.jar ]]; then
 fi
 
 if [[ -n "$MOTD" ]]; then
-    sed -i "/motd\s*=/ c motd=$MOTD" /data/server.properties
+    sed -i "/motd\s*=/ c motd=$MOTD" server.properties
 fi
 if [[ -n "$LEVEL" ]]; then
-    sed -i "/level-name\s*=/ c level-name=$LEVEL" /data/server.properties
+    sed -i "/level-name\s*=/ c level-name=$LEVEL" server.properties
 fi
 if [[ -n "$LEVELTYPE" ]]; then
-    sed -i "/level-type\s*=/ c level-type=$LEVELTYPE" /data/server.properties
+    sed -i "/level-type\s*=/ c level-type=$LEVELTYPE" server.properties
 fi
 
 if [[ -n "$OPS" ]]; then
