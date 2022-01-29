@@ -13,7 +13,7 @@ fi
 
 if ! [[ -f Techopolis-B9.0-Server.zip ]]; then
 	rm -fr config defaultconfigs global_data_packs global_resource_packs mods packmenu Techopolis-*-Server.zip
-	curl -o Techopolis-B9.0-Server.zip https://media.forgecdn.net/files/3621/790/Techopolis-B9.0.zip && unzip -u -o Techopolis-B9.0-Server.zip -d /data
+	curl https://www.curseforge.com/minecraft/modpacks/techopolis/download/3621793/file -H 'Host: curseforge.com' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0'  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Referer: https://www.curseforge.com' -H 'Cookie: all required cookies will appear here' -H 'Connection: keep-alive' --compressed && unzip -u -o Techopolis-B9.0-Server.zip -d /data
 
 	# check for serverstarter jar
 	if ! [[ -f serverstarter-2.0.1.jar ]]; then
@@ -49,4 +49,4 @@ if [[ -n "$OPS" ]]; then
 fi
 
 curl -o log4j2_112-116.xml https://launcher.mojang.com/v1/objects/02937d122c86ce73319ef9975b58896fc1b491d1/log4j2_112-116.xml
-java $JVM_OPTS -XX:MaxPermSize=256M -Dlog4j.configurationFile=log4j2_112-116.xml -jar serverstarter-2.0.1.jar nogui
+java $JVM_OPTS -Dlog4j.configurationFile=log4j2_112-116.xml -jar serverstarter-2.0.1.jar nogui
