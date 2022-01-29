@@ -11,27 +11,21 @@ else
 	exit 9
 fi
 
-if ! [[ -f Techopolis-B9.0-Server.zip ]]; then
-	rm -fr config defaultconfigs global_data_packs global_resource_packs mods packmenu Techopolis-*-Server.zip
-	curl https://www.curseforge.com/minecraft/modpacks/techopolis/download/3621793/file -H 'Host: curseforge.com' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0'  -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Referer: https://www.curseforge.com' -H 'Cookie: all required cookies will appear here' -H 'Connection: keep-alive' --compressed && unzip -u -o Techopolis-B9.0-Server.zip -d /data
+# check for serverstarter jar
+if ! [[ -f serverstarter-2.0.1.jar ]]; then
+	# download missing serverstarter jar
+	URL="https://github.com/AllTheMods/alltheservers/releases/download/2.0.1/serverstarter-2.0.1.jar"
 
-	# check for serverstarter jar
-	if ! [[ -f serverstarter-2.0.1.jar ]]; then
-		# download missing serverstarter jar
-		URL="https://github.com/AllTheMods/alltheservers/releases/download/2.0.1/serverstarter-2.0.1.jar"
-
-		if command -v wget &> /dev/null; then
-			echo "DEBUG: (wget) Downloading ${URL}"
-			wget -O serverstarter-2.0.1.jar "${URL}"
-		elif command -v curl &> /dev/null; then
-			echo "DEBUG: (curl) Downloading ${URL}"
-			curl -o serverstarter-2.0.1.jar "${URL}"
-		else
-			echo "Neither wget or curl were found on your system. Please install one and try again"
-			exit 1
-		fi
+	if command -v wget &> /dev/null; then
+		echo "DEBUG: (wget) Downloading ${URL}"
+		wget -O serverstarter-2.0.1.jar "${URL}"
+	elif command -v curl &> /dev/null; then
+		echo "DEBUG: (curl) Downloading ${URL}"
+		curl -o serverstarter-2.0.1.jar "${URL}"
+	else
+		echo "Neither wget or curl were found on your system. Please install one and try again"
+		exit 1
 	fi
-
 fi
 
 if [[ -n "$MOTD" ]]; then
