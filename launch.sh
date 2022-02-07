@@ -4,11 +4,6 @@ set -x
 
 cd /data
 
-if ! [[ -f /data/server.properties ]]; then
-	mv /server.properties /data/server.properties
-	mv /server-setup-config.yaml /data/server-setup-config.yaml
-fi
-
 if ! [[ "$EULA" = "false" ]] || grep -i true eula.txt; then
 	echo "eula=true" > eula.txt
 else
@@ -17,20 +12,23 @@ else
 fi
 
 # check for serverstarter jar
-if ! [[ -f serverstarter-2.0.1.jar ]]; then
+if ! [[ -f serverstarter-B10.0.jar ]]; then
+	rm -fr config defaultconfigs global_data_packs global_resource_packs mods packmenu serverstarter-*.zip server.properties server-setup-config.yaml
 	# download missing serverstarter jar
 	URL="https://github.com/AllTheMods/alltheservers/releases/download/2.0.1/serverstarter-2.0.1.jar"
 
 	if command -v wget &> /dev/null; then
 		echo "DEBUG: (wget) Downloading ${URL}"
-		wget -O serverstarter-2.0.1.jar "${URL}"
+		wget -O serverstarter-B10.0.jar "${URL}"
 	elif command -v curl &> /dev/null; then
 		echo "DEBUG: (curl) Downloading ${URL}"
-		curl -o serverstarter-2.0.1.jar "${URL}"
+		curl -o serverstarter-B10.0.jar "${URL}"
 	else
 		echo "Neither wget or curl were found on your system. Please install one and try again"
 		exit 1
 	fi
+	mv /server.properties /data/server.properties
+	mv /server-setup-config.yaml /data/server-setup-config.yaml
 fi
 
 if [[ -n "$MOTD" ]]; then
@@ -48,4 +46,4 @@ if [[ -n "$OPS" ]]; then
 fi
 
 curl -o log4j2_112-116.xml https://launcher.mojang.com/v1/objects/02937d122c86ce73319ef9975b58896fc1b491d1/log4j2_112-116.xml
-java $JVM_OPTS -Dlog4j.configurationFile=log4j2_112-116.xml -jar serverstarter-2.0.1.jar nogui
+java $JVM_OPTS -Dlog4j.configurationFile=log4j2_112-116.xml -jar serverstarter-B10.0.jar nogui

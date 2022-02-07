@@ -23,9 +23,6 @@ USER minecraft
 VOLUME /data
 WORKDIR /data
 
-COPY server.properties /data/server.properties
-COPY server-setup-config.yaml /data/server-setup-config.yaml
-
 EXPOSE 25565/tcp
 
 CMD ["/launch.sh"]
