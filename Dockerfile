@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM openjdk:11-jdk-buster
+FROM openjdk:8u312-jdk-buster
 
 LABEL version="B10.0"
 
@@ -29,5 +29,5 @@ CMD ["/launch.sh"]
 
 ENV MOTD "Techopolis vB10.0 Server Powered by Docker"
 ENV LEVEL world
-ENV LEVELTYPE skyblock
+ENV LEVELTYPE skyblockbuilder:custom_skyblock
 ENV JVM_OPTS "-Xms2048m -Xmx4096m"
