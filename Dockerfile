@@ -2,7 +2,7 @@
 
 FROM openjdk:11-jdk-buster
 
-LABEL version="1.3"
+LABEL version="B10.0"
 
 RUN apt-get update && apt-get install -y curl unzip dos2unix && \
  addgroup minecraft && \
@@ -30,7 +30,7 @@ EXPOSE 25565/tcp
 
 CMD ["/launch.sh"]
 
-ENV MOTD "Techopolis vB9.0 Server Powered by Docker"
+ENV MOTD "Techopolis vB10.0 Server Powered by Docker"
 ENV LEVEL world
 ENV LEVELTYPE skyblock
 ENV JVM_OPTS "-Xms2048m -Xmx4096m"
