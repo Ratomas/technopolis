@@ -13,7 +13,7 @@ fi
 
 # check for serverstarter jar
 if ! [[ -f serverstarter-B12.0.jar ]]; then
-	rm -fr config defaultconfigs global_data_packs global_resource_packs mods packmenu serverstarter-*.zip server.properties server-setup-config.yaml
+	rm -fr config defaultconfigs global_data_packs global_resource_packs mods packmenu serverstarter-*.jar server.properties server-setup-config.yaml
 	# download missing serverstarter jar
 	URL="https://github.com/AllTheMods/alltheservers/releases/download/2.0.1/serverstarter-2.0.1.jar"
 
