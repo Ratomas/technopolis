@@ -40,4 +40,4 @@ example:
 
 ## Source
 Github: https://github.com/Ratomas/techopolis
-Docker: https://hub.docker.com/repository/docker/ratomas/techopolis
+Docker: https://hub.docker.com/r/ratomas/techopolis
