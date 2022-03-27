@@ -12,17 +12,17 @@ else
 fi
 
 # check for serverstarter jar
-if ! [[ -f serverstarter-1.0.jar ]]; then
+if ! [[ -f serverstarter-1.1.jar ]]; then
 	rm -fr config defaultconfigs global_data_packs global_resource_packs mods packmenu serverstarter-*.jar server.properties server-setup-config.yaml
 	# download missing serverstarter jar
 	URL="https://github.com/AllTheMods/alltheservers/releases/download/2.0.1/serverstarter-2.0.1.jar"
 
 	if command -v wget &> /dev/null; then
 		echo "DEBUG: (wget) Downloading ${URL}"
-		wget -O serverstarter-1.0.jar "${URL}"
+		wget -O serverstarter-1.1.jar "${URL}"
 	elif command -v curl &> /dev/null; then
 		echo "DEBUG: (curl) Downloading ${URL}"
-		curl -o serverstarter-1.0.jar "${URL}"
+		curl -o serverstarter-1.1.jar "${URL}"
 	else
 		echo "Neither wget or curl were found on your system. Please install one and try again"
 		exit 1
@@ -46,4 +46,4 @@ if [[ -n "$OPS" ]]; then
 fi
 
 curl -o log4j2_112-116.xml https://launcher.mojang.com/v1/objects/02937d122c86ce73319ef9975b58896fc1b491d1/log4j2_112-116.xml
-java $JVM_OPTS -Dlog4j.configurationFile=log4j2_112-116.xml -jar serverstarter-1.0.jar nogui
+java $JVM_OPTS -Dlog4j.configurationFile=log4j2_112-116.xml -jar serverstarter-1.1.jar nogui
